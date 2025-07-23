@@ -112,6 +112,8 @@ def handle_text_message(event):
     )
 
 # 伺服器啟動部分，不變
+# 這段是為了讓 Render 能正確啟動 Flask 應用，不再需要 ngrok
 if __name__ == "__main__":
-    # ... (此處程式碼不變，保留給本機測試用)
-    pass
+    # Render 會自動處理 port，我們監聽 0.0.0.0 即可
+    # debug=True 在正式環境應設為 False，但為了方便初期除錯可先開著
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)), debug=True)
