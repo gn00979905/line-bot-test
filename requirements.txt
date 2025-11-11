@@ -1,5 +1,6 @@
 flask
 line-bot-sdk
-google-generativeai
+google-generativeai>=0.5.0  # 確保版本至少是 0.5.0 或更新
 gunicorn  # 正式環境的伺服器軟體
+
 gevent    # 配合 gunicorn 使用，提升效能
