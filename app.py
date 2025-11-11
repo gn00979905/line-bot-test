@@ -51,7 +51,7 @@ messaging_api = MessagingApi(ApiClient(configuration))
 # 初始化 Gemini API
 try:
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash-latest')
 except Exception as e:
     app.logger.error(f"Gemini API 初始化失敗：{e}")
     model = None
@@ -118,4 +118,5 @@ if __name__ == "__main__":
     # Render 會自動處理 port，我們監聽 0.0.0.0 即可
     # debug=True 在正式環境應設為 False，但為了方便初期除錯可先開著
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)), debug=True)
+
 
